@@ -1,5 +1,5 @@
 
-## Docker Image with a Base Centos8 Image baked with all Network Monitoring Tools/RPM's
+## Docker Image : Centos8 + Network Utilities (*Listed below*)
 
 ```
 python3.8
@@ -15,19 +15,28 @@ ipcalc
 net-tools
 bind-utils
 nginx
+netstat-nat
 
 ```
 
-## Additional Changes
+## Extra
 
-Configure NGINX on both 80 & 443
-Create self-signed certs for enabling 443
+Running nginx on both 80 & 443
 
-## How to run
+## Build & Run
 
 ```
-docker pull baburaj/centos8
-docker run -p 80:80 -p 443:443 -d --name demo -it baburaj/centos8
+docker build -t baburaj/netops:latest .
+docker run -p 80:80 -p 443:443 -d --name netops -it baburaj/netops
+
+
+[root@netops2 build]# curl -s http://[::]:80
+Success!! - nginx run time on Centos8
+
+[root@netops2 build]# curl -ks https://[::]:443
+Success!! - nginx run time on Centos8
+
+docker push baburaj/netops
 
 ```
 
