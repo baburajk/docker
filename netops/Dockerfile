@@ -1,5 +1,3 @@
-[root@netops2 build]# docker build -t baburaj/netops:latest .^C
-[root@netops2 build]# cat Dockerfile
 FROM centos:latest
 
 MAINTAINER raj.anju@gmail.com
