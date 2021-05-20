@@ -14,6 +14,11 @@ RUN dnf install http://repo.iotti.biz/CentOS/7/x86_64/netstat-nat-1.4.10-1.x86_6
 COPY index.html /usr/share/nginx/html/
 COPY nginx.conf /etc/nginx/nginx.conf
 
+RUN echo "Container/HostName : $(hostname) " > /usr/share/nginx/html/index.html
+RUN echo "   " >> /usr/share/nginx/html/index.html
+RUN echo " - Interfaces - " >> /usr/share/nginx/html/index.html
+RUN ip addr show >> /usr/share/nginx/html/index.html
+
 RUN mkdir -pv /certs/security/
 
 RUN openssl req -x509 -newkey rsa:2048 -nodes -days 9000 -keyout /certs/security/localhost.key -out /certs/security/localhost.pem -subj '/CN=localhost'
