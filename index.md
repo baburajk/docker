@@ -25,8 +25,7 @@ net-tools
 bind-utils
 nginx
 netstat-nat
-```
-
+ 
  
 ### Extra
 
@@ -35,6 +34,7 @@ Running nginx on both 80 & 443
  
 ## Build & Run
 
+```markdown
 docker build -t baburaj/netops:latest .
 docker run -p 80:80 -p 443:443 -d --name netops -it baburaj/netops
 
