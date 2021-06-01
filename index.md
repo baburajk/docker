@@ -30,12 +30,8 @@ netstat-nat
  
 ### Extra
 
- 
+Running nginx on both 80 & 443
 
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
  
 ## Build & Run
 
