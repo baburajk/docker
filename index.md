@@ -4,34 +4,49 @@ You can use the [editor on GitHub](https://github.com/baburajk/docker/edit/gh-pa
 
 Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+### Docker Image : Centos8 + Network Utilities (Listed below)
+
+
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
 ```markdown
-Syntax highlighted code block
+python3.8
+curl
+jq
+mtr
+nmap-ncat
+tcpdump
+wget
+curl
+iproute
+ipcalc
+net-tools
+bind-utils
+nginx
+netstat-nat
+```
 
-# Header 1
-## Header 2
-### Header 3
+ 
+### Extra
 
-- Bulleted
-- List
-
-1. Numbered
-2. List
+ 
 
 **Bold** and _Italic_ and `Code` text
 
 [Link](url) and ![Image](src)
 ```
+ 
+## Build & Run
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+docker build -t baburaj/netops:latest .
+docker run -p 80:80 -p 443:443 -d --name netops -it baburaj/netops
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/baburajk/docker/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+[root@netops2 build]# curl -s http://[::]:80
+Success!! - nginx run time on Centos8
 
-### Support or Contact
+[root@netops2 build]# curl -ks https://[::]:443
+Success!! - nginx run time on Centos8
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+docker push baburaj/netops
