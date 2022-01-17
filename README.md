@@ -16,6 +16,7 @@ net-tools
 bind-utils
 nginx
 netstat-nat
+stress-ng
 
 ```
 
