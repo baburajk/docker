@@ -17,6 +17,21 @@ bind-utils
 nginx
 netstat-nat
 stress-ng
+bird
+conntrack-tools
+dhcping
+fping
+iperf
+ipvsadm
+openssl
+iperf3
+nmap
+scapy
+socat
+strace
+seige
+git
+seige
 
 ```
 
