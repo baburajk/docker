@@ -30,6 +30,7 @@ socat
 strace
 seige
 git
+htop
 
 ```
 

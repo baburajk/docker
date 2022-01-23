@@ -11,6 +11,7 @@ RUN dnf install curl jq mtr nmap-ncat tcpdump wget -y
 RUN dnf install iproute ipcalc net-tools bind-utils -y
 RUN dnf install stress-ng bird conntrack-tools dhcping fping iperf3 ipvsadm openssl nmap -y
 RUN dnf install scapy socat strace siege git -y
+RUN dnf install htop -y
 RUN dnf install http://repo.iotti.biz/CentOS/7/x86_64/netstat-nat-1.4.10-1.x86_64.rpm -y
 
 COPY index.html /usr/share/nginx/html/
