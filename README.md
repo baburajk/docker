@@ -21,7 +21,6 @@ bird
 conntrack-tools
 dhcping
 fping
-iperf
 ipvsadm
 openssl
 iperf3
