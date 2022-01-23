@@ -31,7 +31,6 @@ socat
 strace
 seige
 git
-seige
 
 ```
 
