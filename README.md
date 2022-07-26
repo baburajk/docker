@@ -1,6 +1,8 @@
 
 ## Docker Image: CentOS Stream 8 + Network Utilities (*Listed Below )
-/netops-cs8
+
+```
+#netops-cs8
 
 python3.9
 curl
@@ -35,9 +37,11 @@ htop
 ```
 
 ## Docker Image : Centos8 + Network Utilities (*Listed below*)
-/netops 
 
 ```
+#netops 
+
+
 python3.8
 curl
 jq
