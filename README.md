@@ -2,7 +2,7 @@
 ## Docker Image: CentOS Stream 8 + Network Utilities (*Listed Below )
 
 ```
-#netops-cs8
+#noclinx8c
 
 python3.9
 curl
@@ -84,25 +84,38 @@ Running nginx on both 80 & 443
 Centos-Stream 8 
 ------------------
 
-docker build -t baburaj/netops-cs8 .
-docker run -p 80:80 -p 443:443 -d --name netops-cs8 -it baburaj/netops-cs8
-docker push baburaj/netops-cs8
+#docker build -t baburaj/netops-cs8 .
+docker buildx build --platform linux/amd64,linux/arm64 . -t baburaj/noclnx8c --push
+docker pull baburaj/noclnx8c
+docker run -p 80:80 -p 443:443 -d --name noclnx8c -it baburaj/noclnx8c
 
-Centos 8 (Old)
-----------------
+root@nlab01:~#  docker run -p 80:80 -p 443:443 -d --name noclnx8c -it baburaj/noclnx8c
+e8b9fec159decdec4c834792066d0813c5f1c5a8d96eea37f1e7f2bcf68a58c8
+root@nlab01:~# curl -ks https://localhost:443
+Container/HostName : e8b9fec159de
 
-docker build -t baburaj/netops:latest .
-docker run -p 80:80 -p 443:443 -d --name netops -it baburaj/netops
-docker push baburaj/netops
+ - Interfaces -
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+13: eth0@if14: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
+root@nlab01:~# curl -ks http://localhost:80
+Container/HostName : e8b9fec159de
 
-Validate 
-----------------
+ - Interfaces -
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+13: eth0@if14: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP group default
+    link/ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0
+    inet 172.17.0.2/16 brd 172.17.255.255 scope global eth0
+       valid_lft forever preferred_lft forever
 
-[root@netops2 build]# curl -s http://[::]:80
-Success!! - nginx run time on Centos8
-
-[root@netops2 build]# curl -ks https://[::]:443
-Success!! - nginx run time on Centos8
 
 
 ```
